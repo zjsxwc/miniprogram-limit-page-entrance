@@ -1,0 +1,4 @@
+<!--pages/navi/navi.wxml-->
+<text>pages/navi/navi.wxml</text>
+
+<button bindtap="bindtoback">back</button>

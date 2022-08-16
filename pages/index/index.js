@@ -14,18 +14,30 @@ Page({
   },
   // 事件处理函数
   bindViewTap() {
-    this.onShow();
+    this.setData({
+      error: '这是一个错误提示'
+    })
     return;
     wx.navigateTo({
       url: '../logs/logs'
     })
   },
-  onShow() {
-    this.setData({
-        error: '这是一个错误提示'
+  bindToNavi() {
+    console.log("navi")
+    wx.navigateTo({
+      url: '../navi/navi'
     })
+  },
+  onShow() {
+    console.log("onshow", Math.random())
+    if (!this.data.error) {
+      this.setData({
+        error: '这是一个错误提示'
+      })
+    }
 },
-  onLoad() {
+  onLoad(options) {
+    console.log("options!", Math.random());
     if (wx.getUserProfile) {
       this.setData({
         canIUseGetUserProfile: true

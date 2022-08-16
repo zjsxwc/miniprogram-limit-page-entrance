@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <view class="container">
   <mp-sticky offset-top="32">
-  <button size="mini" type="primary" style="margin-left: 115px; background-color: #1989fa">吸顶距离</button>
+  <button size="mini" type="primary" style="margin-left: 115px; background-color: #1989fa" bindtap="bindToNavi">吸顶距离</button>
 </mp-sticky>
 
 
