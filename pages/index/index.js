@@ -25,7 +25,7 @@ Page({
   bindToNavi() {
     console.log("navi")
     wx.navigateTo({
-      url: '../navi/navi'
+      url: '../navi/navi?status='+Math.random()
     })
   },
   onShow() {

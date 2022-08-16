@@ -12,7 +12,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    console.log("navi onLoad",options)
   },
 
   /**
@@ -26,7 +26,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-
+    this.getValidPrevIndexPage();
+    console.log("navi onShow")
   },
 
   /**
@@ -65,15 +66,23 @@ Page({
   },
 
 
-  bindtoback() {
-    console.log("bindtoback");
-
+  getValidPrevIndexPage(){
     let ps = getCurrentPages();
-    let prevPage = ps[ps.length - 2];
-    console.log(prevPage.data)
-    prevPage.setData({error: "hhhhh"})
-    wx.navigateBack({delta:1})
+    let isValid = (ps.length >= 2) && ("pages/index/index" === ps[ps.length - 2].route);
+    if (!isValid) {
+      wx.navigateTo({
+        url: "../index/index"
+      });
+      return;
+    }
+    console.log("valid");
+    return ps[ps.length - 2];
+  },
 
+  bindtoback() {
+    let prevPage = this.getValidPrevIndexPage();
+    prevPage.setData({error: "hhhhh"});
+    wx.navigateBack({delta:1});
   }
 
 })
